@@ -1,5 +1,6 @@
 import React from 'react';
 import type { LiveInfo } from '../types/Streamer';
+import '../styles/streamerCard.css';
 
 interface Props {
   streamer: LiveInfo;
@@ -7,19 +8,44 @@ interface Props {
 
 const StreamerCard: React.FC<Props> = ({ streamer }) => {
   return (
-    <div style={{ border: '1px solid #ccc', borderRadius: '8px', width: '320px', padding: '10px' }}>
-      <img
-        src={streamer.thumbnailUrl}
-        alt={`${streamer.streamerName} 썸네일`}
-        style={{ width: '100%', borderRadius: '4px' }}
+    <div className="streamer-card">
+      <div className="thumbnail-wrapper">
+        <img
+          src={streamer.thumbnailUrl}
+          alt={`${streamer.streamerName} 썸네일`}
+          className="streamer-thumbnail"
         />
-      <h3>{streamer.streamerName}</h3>
-      <p>{streamer.liveTitle}</p>
-      <p>{streamer.category}</p>
-      <p>{streamer.tags.join(', ')}</p>
-      <a href={streamer.liveUrl} target="_blank" rel="noopener noreferrer">
-        방송 보러가기
-      </a>
+        <div className="viewer-count">
+          👁 {streamer.concurrentUserCount}
+        </div>
+      </div>
+      <div className="info-wrapper">
+        <div className="tag-container">
+          {(streamer.tags && streamer.tags.length > 0 ? streamer.tags : ['talk']).map((tag, index) => (
+            <span key={index} className="tag">
+              {tag}
+            </span>
+          ))}
+        </div>
+        <div className="live-title">
+          {streamer.liveTitle}
+        </div>
+        <div className="streamer-name">
+          {streamer.streamerName}
+        </div>
+        <div className="category">
+          {streamer.category}
+        </div>
+        <div className="live-link-container">
+        <a
+          href={streamer.liveUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="watch-link"
+        >
+          Go to Live
+        </a></div>
+      </div>
     </div>
   );
 };

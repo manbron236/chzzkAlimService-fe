@@ -1,0 +1,84 @@
+.streamer-card {
+  width: 320px;
+  border: 2px solid #00e5ff;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 12px;
+  transition: transform 0.2s ease;
+}
+
+.streamer-card:hover {
+  transform: translateY(-6px);
+}
+
+.thumbnail-wrapper {
+  position: relative;
+}
+
+.streamer-thumbnail {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.viewer-count {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: rgba(0, 0, 0, 0.65);
+  color: white;
+  padding: 2px 6px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+
+.info-wrapper {
+  padding: 10px;
+}
+
+.tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 6px;
+}
+
+.tag {
+  background-color: #e0e0e0;
+  padding: 2px 8px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.live-title {
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 4px;
+  color: #222;
+}
+
+.streamer-name {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+.category {
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 6px;
+}
+
+.watch-link {
+  background-color: black;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #00FFA3;
+  text-decoration: none;
+}

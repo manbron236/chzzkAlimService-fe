@@ -7,4 +7,5 @@ export interface LiveInfo {
   liveTitle: string;
   tags: string[];
   category: string;
+  concurrentUserCount: number;
 }
