@@ -9,7 +9,7 @@ const ChzzkPage: React.FC = () => {
   useEffect(() => {
     const loadStreamers = async () => {
       const data = await fetchLiveStreamers();
-      console.log('🎯 받은 데이터:', data); // 추가
+      // console.log('🎯 받은 데이터:', data); // 추가
       setLiveStreamers(data);
     };
     loadStreamers();
@@ -17,7 +17,8 @@ const ChzzkPage: React.FC = () => {
 
   return (
   <div style={{ padding: '20px' }}>
-    <h2>치지직 방송 중 스트리머</h2>
+    <h1>치지직</h1>
+    <h2>현재 방송 중인 스트리머</h2>
     {liveStreamers.length === 0 ? (
       <p>현재 방송 중인 스트리머가 없습니다.</p>
     ) : (

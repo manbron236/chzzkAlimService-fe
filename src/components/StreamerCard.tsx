@@ -1,6 +1,5 @@
 import React from 'react';
 import type { LiveInfo } from '../types/Streamer';
-// import './StreamerCard.css';
 
 interface Props {
   streamer: LiveInfo;
@@ -8,13 +7,20 @@ interface Props {
 
 const StreamerCard: React.FC<Props> = ({ streamer }) => {
   return (
-    <a className="streamer-card" href={streamer.liveUrl} target="_blank" rel="noopener noreferrer">
-      <img src={streamer.thumbnailUrl} alt={streamer.streamerName} className="streamer-thumbnail" />
-      <div className="streamer-info">
-        <h3>{streamer.streamerName}</h3>
-        <p>방송 중 🔴</p>
-      </div>
-    </a>
+    <div style={{ border: '1px solid #ccc', borderRadius: '8px', width: '320px', padding: '10px' }}>
+      <img
+        src={streamer.thumbnailUrl}
+        alt={`${streamer.streamerName} 썸네일`}
+        style={{ width: '100%', borderRadius: '4px' }}
+        />
+      <h3>{streamer.streamerName}</h3>
+      <p>{streamer.liveTitle}</p>
+      <p>{streamer.category}</p>
+      <p>{streamer.tags.join(', ')}</p>
+      <a href={streamer.liveUrl} target="_blank" rel="noopener noreferrer">
+        방송 보러가기
+      </a>
+    </div>
   );
 };
 
