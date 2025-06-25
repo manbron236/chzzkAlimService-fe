@@ -7,7 +7,7 @@ export const fetchLiveStreamers = async (): Promise<LiveInfo[]> => {
   try {
     const response = await axios.get(`${API_BASE_URL}/api/streamers/live`);
     // console.log("✅ 응답 데이터:", response.data);
-    return response.data;
+    return Array.isArray(response.data) ? response.data : [];
   } catch (error) {
     console.error('라이브 스트리머 불러오기 실패:', error);
     return [];
