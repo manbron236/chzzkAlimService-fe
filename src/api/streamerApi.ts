@@ -1,5 +1,5 @@
 import axios from 'axios';
-import type { LiveInfo } from '../types/Streamer';
+import type { LiveInfo } from '../types/Streamer.ts';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 

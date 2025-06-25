@@ -1,5 +1,5 @@
 import React from 'react';
-import type { LiveInfo } from '../types/Streamer';
+import type { LiveInfo } from '../types/Streamer.ts';
 import '../styles/streamerCard.css';
 
 interface Props {

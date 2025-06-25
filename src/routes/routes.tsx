@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import ChzzkPage from '../pages/ChzzkPage';
+import ChzzkPage from '../pages/ChzzkPage.tsx';
 
 const AppRoutes: React.FC = () => {
   return (
