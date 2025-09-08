@@ -22,8 +22,9 @@ jobs:
     # 3. 의존성 설치 및 React 빌드
     - name: Install dependencies and build
       env:
-        VITE_API_BASE_URL: ${{ vars.VITE_API_BASE_URL }}
+        VITE_API_BASE_URL: "https://www.mjdev.kr"
       run: |
+        echo "Building with API URL: https://www.mjdev.kr"
         npm install
         npm run build
 
