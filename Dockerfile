@@ -1,5 +1,7 @@
-# 1. build 환경: Node.js로 프론트 빌드
-FROM node:20-alpine AS builder
+# 1. build 환경: 보안 패치가 적용된 구체적인 최신 버전 이미지 사용
+FROM node:20.18.0-alpine3.20 AS builder
+
+RUN apk update && apk upgrade
 
 WORKDIR /app
 
@@ -12,7 +14,7 @@ RUN npm run build
 # 2. serve 환경: nginx로 정적 파일 제공
 FROM nginx:alpine
 
-# Nginx 기본 설정 덮어쓰기 (선택)
+# Nginx 기본 설정 덮어쓰기
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 
 # React 빌드 결과 복사
