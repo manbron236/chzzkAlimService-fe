@@ -53,5 +53,6 @@ jobs:
         script: |
           cd /root/chzzk-app
           docker pull manbron236/chzzk-frontend:latest
-          docker-compose up -d --remove-orphans frontend
+          docker-compose down frontend
+          docker-compose up -d frontend
           docker image prune -f
