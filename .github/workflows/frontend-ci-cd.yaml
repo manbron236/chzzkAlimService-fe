@@ -55,13 +55,9 @@ jobs:
         script: |
           cd /root/chzzk-app
           echo "🚀 Starting deployment..."
+          docker pull manbron236/chzzk-frontend:latest
           docker-compose stop frontend || echo "No running frontend container"
           docker-compose rm -f frontend || echo "No frontend container to remove"
-          
-          # 새 컨테이너 시작
           docker-compose up -d frontend
-          
-          # 사용하지 않는 이미지 정리
           docker image prune -f
-          
           echo "✅ Deployment completed successfully"
