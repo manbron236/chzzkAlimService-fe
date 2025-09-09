@@ -52,7 +52,15 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
           cd /root/chzzk-app
-          docker pull manbron236/chzzk-frontend:latest
-          docker-compose down frontend
+          echo "🚀 Starting deployment..."
+          # 기존 컨테이너 안전하게 정리
+          docker-compose stop frontend || echo "No running frontend container"
+          docker-compose rm -f frontend || echo "No frontend container to remove"
+          
+          # 새 컨테이너 시작
           docker-compose up -d frontend
+          
+          # 사용하지 않는 이미지 정리
           docker image prune -f
+          
+          echo "✅ Deployment completed successfully"
