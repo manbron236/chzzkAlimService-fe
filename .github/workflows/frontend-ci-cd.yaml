@@ -53,23 +53,13 @@ jobs:
         script: |
           cd /root/chzzk-app
           echo "🚀 Starting deployment..."
-          
-          # 기존 이미지 완전 삭제
-          docker rmi manbron236/chzzk-frontend:latest || echo "No local image to remove"
-          
-          # 최신 이미지 강제 다운로드
-          docker pull manbron236/chzzk-frontend:latest
-          
-          # 기존 컨테이너 정리
           docker-compose stop frontend || echo "No running frontend container"
           docker-compose rm -f frontend || echo "No frontend container to remove"
           
           # 새 컨테이너 시작
           docker-compose up -d frontend
           
-          # 확인
-          echo "🔍 Checking deployed files..."
-          docker-compose exec frontend ls -la /usr/share/nginx/html/assets/
-          
+          # 사용하지 않는 이미지 정리
           docker image prune -f
+          
           echo "✅ Deployment completed successfully"
